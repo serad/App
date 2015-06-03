@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <link rel="icon" href="img/favicon1.ico">
+
+        <title>Pagina principal</title>
+
+        <link href="css/materialize.min.css" rel="stylesheet">
+        <link href="css/indexApp.css" rel="stylesheet">
+        <link href="css/horario.css" rel="stylesheet">
+
+    </head>
+    <body onload="cargarHorario(), cargarAsignaturas(), cargarArchivos(), comprobarLog()" id="gradient">
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper indigo" >
+                    <div class="container">
+                        <a href="#!" class="brand-logo">
+                        <span class="hide-on-nuestra left" id="">SC Manager</span>
+                        <span class="hide-on-large-only center">SCM</span>
+                        </a>
+                        <a href="#" data-activates="navLateral" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+                        <ul class="right hide-on-med-and-down">
+                            <li >
+                                <a href="#principal" onclick="mostrar('principal',this)" class="activo">
+                                Principal
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#estadisticas" onclick="mostrar('estadisticas',this)">
+                                Estadísticas
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#notas" onclick="mostrar('notas',this)">
+                                Notas
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#mensajes" onclick="mostrar('mensajes',this)">
+                                Mensajes
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#archivos" onclick="mostrar('archivos',this)">
+                                Archivos
+                                </a>
+                            </li>
+                            <li>
+                                <a href="editarPerfil.html" class="waves-effect waves-light btn deep-orange accent-4">
+                                Editar Perfil
+                                </a>
+                            </li>
+                            <li>
+                                <a class="mdi-action-exit-to-app deep-orange-text accent-4" style="font-size: 25px"></a>
+                            </li>
+                        </ul>
+                        <ul class="side-nav" id="navLateral">
+                            <li class="logo"><img src="img/logo.png" height="100"></li>
+                            <li >
+                                <a href="#principal" onclick="mostrar('principal')">
+                                Principal
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#estadisticas" onclick="mostrar('estadisticas')">
+                                Estadìsticas
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#notas" onclick="mostrar('notas')">
+                                Notas
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#mensajes" onclick="mostrar('mensajes')">
+                                Mensajes
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#archivos" onclick="mostrar('archivos')">
+                                Archivos
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+        <div class="container">
+
+            <div class="contenido" id="contenedor">
+                <!-- el horario se trae mediante una peticion ajax y se añade con JS  -->
+                <div class="principal cont" id="principal">Hola</div>
+
+            </div>
+            <div class="cont" id="estadisticas"  style="display: none">
+                <h2>Estadísticas</h2>
+                <div id="grafico"> AKI VA EL GRAFICO</div>
+            </div>
+            <div class="cont" id="notas" style="display: none">
+                <h1>Notas</h1>
+                <div id="asignaturas"></div>
+                <hr>
+                <div id="listaAlumnos"></div>
+            </div>
+            <div class="cont" id="mensajes" style="display: none">
+                <h2>Mensajes</h2>
+                <button class="btn btn-info" onclick="verMensajes(this)"> Ver mensajes </button>
+                <button class="btn btn-info" onclick="$(this).siblings('div').hide(),$('#formEnviar').show()"> Enviar Mensaje </button>
+                <div id="mensajesRecibidos" style="display:none">
+                    <fieldset >
+                        <legend>Mensajes Recibidos:</legend>
+                    </fieldset>
+                </div>
+                <div id="formEnviar" style="display:none">
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>Enviar mensaje a:</legend>
+                            <label for="InputUsuario">Destinatario</label>
+                            <input type="email" class="form-control" id="InputUsuario" placeholder="Usuario destinatario">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputAsunto">Asunto</label>
+                            <input type="text" class="form-control" id="InputAsunto" placeholder="Asunto del mensaje">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputTextArea">Mensaje</label>
+                            <textarea class="form-control" id="InputTextArea" rows="5" style='resize:none;'></textarea>
+                        </div>
+                        <button class="btn btn-default" onclick="enviarMensaje()">Enviar</button>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="cont archivos-container z-depth-2 white" id="archivos" style="display: none">
+
+                <div class="row">
+                    <div class="file-field input-field col m9">
+                        <div class="row">
+                            <div class="col offset-m1 m10">
+                                <input class="file-path validate" id="nArchivo" type="text" />
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span>Archivo</span>
+                            <input  id="archi" type="file" />
+                        </div>
+                    </div>
+                    <div class="file-field input-field col m3">
+                        <button class="btn btn-large waves-effect waves-light deep-orange accent-2" type="button" onclick="subirArchivos()"><span class="hide-on-med-and-down">Subir</span><i class="mdi-file-cloud-upload right"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+                <div id="lArchivos"></div>
+            </div>
+
+
+        </div>
+
+
+
+
+        <!-- ##### Scripts ##### -->
+        <script src="js/otros/jquery-2.1.3.min.js"></script>
+        <script src="js/otros/highcharts.js"></script>
+        <script src="js/otros/materialize.min.js"></script>
+        <script src="js/otros/exporting.js"></script>
+        <script src="js/cargarHorario.js"></script>
+        <script src="js/indexsScripts.js"></script>
+        <script src="js/archivos.js"></script>
+        <script src="js/notas.js"></script>
+        <script src="js/general.js"></script>
+        <script src="js/notificacion.js"></script>
+        <script src="js/mensajes.js"></script>
+        <script src="js/cargaGrafico.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+            //$('.file-path').append( '<button class="btn btn-primary" onclick="subirArchivos()">Enviar</button> ')
+            $('.tooltipped').tooltip({delay: 50});
+            $('.button-collapse').sideNav({
+            edge: 'left', // Choose the horizontal origin
+            closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+
+            }
+        );
+            })
+        </script>
+    </body>
+</html>

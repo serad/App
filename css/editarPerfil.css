@@ -1,0 +1,11 @@
+.card-container.card {
+    width: 350px;
+    padding: 25px 40px;
+}
+.panel-heading {
+    margin-top: -50px;
+    background-color: rgb(42, 114, 127) !important;
+    margin-bottom: 30px;
+    border-radius: 0px;
+    text-align: center;
+}

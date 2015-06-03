@@ -1,0 +1,40 @@
+
+Traza a 213-155-155-233.customer.teliacarrier.com[213.155.155.233] sobre caminos de 30 saltos como m ximo:
+  0  Key-PC.Home [192.168.1.33] 
+  1  192.168.1.1 
+  2  93.Red-80-58-67.staticIP.rima-tde.net [80.58.67.93] 
+  3  101.Red-80-58-95.staticIP.rima-tde.net [80.58.95.101] 
+  4  86.Red-81-46-8.staticIP.rima-tde.net [81.46.8.86] 
+  5  216.184.113.104.nuevatel.com [216.184.113.104] 
+  6  xe5-1-2-0-grtpareq1.net.telefonicaglobalsolutions.com [84.16.15.222] 
+  7  prs-b8-link.telia.net [80.239.192.73] 
+  8  prs-bb2-link.telia.net [62.115.138.138] 
+  9  adm-bb4-link.telia.net [213.155.136.26] 
+ 10  adm-b4-link.telia.net [213.155.137.183] 
+ 11     *        *        *     
+Procesamiento de estad¡sticas durante 250 segundos...
+              Origen hasta aqu¡   Este Nodo/V¡nculo
+Salto  RTT    Perdido/Enviado = Pct  Perdido/Enviado = Pct  Direcci¢n
+  0                                           Key-PC.Home [192.168.1.33] 
+                                0/ 100 =  0%   |
+  1    0ms     0/ 100 =  0%     0/ 100 =  0%  192.168.1.1 
+                                0/ 100 =  0%   |
+  2    2ms    73/ 100 = 73%    73/ 100 = 73%  93.Red-80-58-67.staticIP.rima-tde.net [80.58.67.93] 
+                                0/ 100 =  0%   |
+  3  ---     100/ 100 =100%   100/ 100 =100%  101.Red-80-58-95.staticIP.rima-tde.net [80.58.95.101] 
+                                0/ 100 =  0%   |
+  4  ---     100/ 100 =100%   100/ 100 =100%  86.Red-81-46-8.staticIP.rima-tde.net [81.46.8.86] 
+                                0/ 100 =  0%   |
+  5    3ms     0/ 100 =  0%     0/ 100 =  0%  216.184.113.104.nuevatel.com [216.184.113.104] 
+                                0/ 100 =  0%   |
+  6   30ms     0/ 100 =  0%     0/ 100 =  0%  xe5-1-2-0-grtpareq1.net.telefonicaglobalsolutions.com [84.16.15.222] 
+                                0/ 100 =  0%   |
+  7   23ms     0/ 100 =  0%     0/ 100 =  0%  prs-b8-link.telia.net [80.239.192.73] 
+                                0/ 100 =  0%   |
+  8   31ms     0/ 100 =  0%     0/ 100 =  0%  prs-bb2-link.telia.net [62.115.138.138] 
+                                0/ 100 =  0%   |
+  9   41ms     0/ 100 =  0%     0/ 100 =  0%  adm-bb4-link.telia.net [213.155.136.26] 
+                                0/ 100 =  0%   |
+ 10   35ms     0/ 100 =  0%     0/ 100 =  0%  adm-b4-link.telia.net [213.155.137.183] 
+
+Traza completa.

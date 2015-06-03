@@ -1,0 +1,105 @@
+﻿hr {
+    height: 0.2em;
+    background-color: rgb(96, 167, 127);
+    border: none;
+    width: 100%;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+table {
+    text-align: center;
+    border: none !important;
+}
+#flotante {
+    float: left;
+    width: auto;
+    vertical-align: top;
+    margin: 30px;
+}
+.colores {
+    height: 20px;
+    width: 20px;
+}
+.contenedor {
+    vertical-align: top;
+    display: inline-block;
+    height: 35em;
+    border: solid 1px rgb(96, 167, 127);
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 0em;
+    background: rgba(171, 205, 239, 0.8);
+    color: #000;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+.contenedor div {
+    display: inline-block;
+}
+.hor {
+    background-color: #DDECFA;
+    border: 2px #f4f7fa solid;
+    border-radius: 7px;
+    height: 45px;
+    width: 120px;
+    font-weight: bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+.horas {
+    width: 70px;
+    background-color: #red;
+    border: 2px #f4f7fa solid;
+    border-radius: 7px;
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+th {
+    background-color: none;
+    border-radius: 7px;
+    border: none;
+}
+td {
+    border: 2px #f4f7fa solid;
+    border-radius: 7px;
+}
+.table-curved {
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+.table-curved {
+    border: solid #ccc 1px;
+    border-radius: 6px;
+    border-left: 0px;
+}
+.table-curved td, .table-curved th {
+    padding-right: 10px;
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
+.table-curved th {
+    border: none;
+    font-size: 120%;
+}
+.table-curved th:first-child {
+    border-radius: 6px;
+}
+.table-curved th:last-child {
+    border-radius: 6px;
+}
+.table-curved th:only-child {
+    border-radius: 6px;
+}
+.table-curved tr:last-child td:first-child {
+    border-radius: 6px;
+}
+.table-curved tr:last-child td:last-child {
+    border-radius: 6px;
+}

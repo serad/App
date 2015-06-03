@@ -1,0 +1,38 @@
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top: 30px;
+    background-image: linear-gradient(#049DBF, #03658C);
+}
+.contenido {
+    height: 100%;
+    padding: 30px 15px;
+    text-align: center;
+}
+.navbar-toggle {
+    background-color: black !important;
+}
+nav a {
+    font-weight: bold;
+}
+.link {
+    text-decoration: none;
+    color: #000;
+}
+.link:hover {
+    text-decoration: none;
+}
+.link:visited {
+    text-decoration: none;
+}
+.link:active {
+    text-decoration: none;
+}
+.link:link {
+    text-decoration: none;
+}
