@@ -26,11 +26,13 @@
               cargarArchivos();
               $('#nArchivo').val('')
               notificacion("Subido correctamente")
+              vaciarFile()
           }
       });
   }
 
-  function borrarArchivo(e) {
+  function borrarArchivo() {
+    var e = $('#archivo').html()
           //Funcion Ajax
           var parametros = {
               archivo: e,
@@ -47,3 +49,18 @@
                       } //fin success
               }) //Fin Ajax
       } //Fin borrarARchivos
+
+          function mostrarSubir () { 
+
+                  $('#btnS').removeClass('hide')  
+                  $('#iconoA').removeClass();
+                  $('#iconoA').addClass('mdi-image-filter-1');
+
+                }
+                function vaciarFile() {
+                   $('#archi').val('')
+                    $('#nArchivo').val('');
+                    $('#btnS').addClass('hide')
+                  $('#iconoA').removeClass();
+                  $('#iconoA').addClass('mdi-editor-insert-drive-file');
+                }

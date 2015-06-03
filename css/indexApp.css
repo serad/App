@@ -12,6 +12,12 @@
  .navbar-fixed {
      margin-bottom: 15px;
  }
+
+.file-field input.file-path {
+  margin-left: 100px;
+  width: calc(100% - 300px);
+}
+ 
  @media only screen and (max-width: 1300px) {
      .hide-on-nuestra {
          display: none !important;

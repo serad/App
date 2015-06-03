@@ -15,7 +15,7 @@ if (is_dir($dir)) {
         }
         else {
             if (!empty($archivo)) {
-                echo '  <li class="collection-item"><div><a href="' . $dir . "/" . $archivo . '">' . $archivo . '</a><a id="borrar" href="#"  onclick="borrarArchivo(' . "'" . $archivo . "'" . ')" class="secondary-content"><i class="mdi-action-delete red-text"></i></a></div></li>';
+                echo '  <li class="collection-item truncate"><div class="row"><div class="col m10 s9 truncate"><a href="' . $dir . "/" . $archivo . '" >' . $archivo . '</a></div><div class="col m2 s3"><a id="borrar" href="#"  onclick="cargarModal(' . "'" . $archivo . "'" . ')" class="secondary-content"><i class="small mdi-action-delete red-text"></div></div></i></a></div></li>';
             }
 
             //cierre empty

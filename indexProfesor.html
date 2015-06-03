@@ -137,31 +137,43 @@
                 </div>
             </div>
 
-            <div class="cont archivos-container z-depth-2 white" id="archivos" style="display: none">
+            <div class="cont" id="archivos" style="display: none">
 
                 <div class="row">
-                    <div class="file-field input-field col m9">
-                        <div class="row">
-                            <div class="col offset-m1 m10">
-                                <input class="file-path validate" id="nArchivo" type="text" />
-                            </div>
-                        </div>
-                        <div class="btn">
-                            <span>Archivo</span>
-                            <input  id="archi" type="file" />
-                        </div>
-                    </div>
-                    <div class="file-field input-field col m3">
-                        <button class="btn btn-large waves-effect waves-light deep-orange accent-2" type="button" onclick="subirArchivos()"><span class="hide-on-med-and-down">Subir</span><i class="mdi-file-cloud-upload right"></i>
-                        </button>
 
-                    </div>
-
+                    <div class="file-field input-field">  
+                      <div class="valign-wrapper">
+                        <input class="file-path validate" id="nArchivo" type="text" onchange="mostrarSubir()" disabled />
+                     
+                       <a href="#" onclick="vaciarFile()"><i class="valign small mdi-content-clear red-text"></i> </a>
+                        <a href="#" id="btnS" class="hide" onclick="subirArchivos()"><i class="valign small mdi-file-cloud-upload"></i></a>
+                      </div>
+                        <div class="btn deep-orange accent-2" id="btnA">
+                          <span><i class="mdi-editor-insert-drive-file" id="iconoA"></i></span>
+                            <input  id="archi" type="file"  />
+                        </div> 
+                                               
+                    </div> 
                 </div>
+ 
                 <div id="lArchivos"></div>
             </div>
 
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h5>Borrar</h5>
+      <p>Esta a punto de borrar<b>
+      <span id="archivo"></span></b></p>
 
+    </div>
+    <div class="modal-footer">
+      
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">No</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red-text" onclick="borrarArchivo()">Borrar</a>
+    </div>
+
+  </div>
         </div>
 
 
@@ -182,7 +194,7 @@
         <script src="js/cargaGrafico.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
-
+             
             //$('.file-path').append( '<button class="btn btn-primary" onclick="subirArchivos()">Enviar</button> ')
             $('.tooltipped').tooltip({delay: 50});
             $('.button-collapse').sideNav({
@@ -191,7 +203,15 @@
 
             }
         );
+
+         
+
+
             })
+            function cargarModal(nombre) {
+                $('#archivo').html(nombre)
+               $('#modal1').openModal();
+            }
         </script>
     </body>
 </html>
