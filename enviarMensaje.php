@@ -30,7 +30,7 @@ else {
     }
 
     if ($enc) {
-        $consulta = "INSERT INTO mensajes values('','$emisor','$receptor','$asunto','$mensaje')";
+        $consulta = "INSERT INTO mensajes values('','$emisor','$receptor','$asunto','$mensaje','0')";
         $result = $db->consulta($consulta);
         echo $result;
     }

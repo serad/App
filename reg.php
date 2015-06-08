@@ -11,8 +11,15 @@ $apellido = $_POST['apellido'];
 $curso = $_POST['curso'];
 $email = $_POST['email'];
 
-$consulta = "INSERT INTO $tabla VALUES ('$usuario','$pass','$nombre','$apellido','$email','$curso')";
+$consulta = "INSERT INTO $tabla VALUES ('$usuario','$pass','$nombre','$apellido','$email','$curso','')";
 
 $respuesta = $db->consulta($consulta);
+
+if($respuesta == 1) {
+
+$dir = "$tabla/$usuario";
+	mkdir($dir);
+	fopen("$dir/eventos", "w");
+}
 echo $respuesta;
 ?>

@@ -10,7 +10,8 @@ body {
     background-image: linear-gradient(#049DBF, #03658C);
 }
 .contenido {
-    height: 100%;
+    height: 90%;
+    margin:atuto;
     padding: 30px 15px;
     text-align: center;
 }

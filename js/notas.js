@@ -8,15 +8,34 @@
                   dataType: 'json',
                   //Funcion de respuesta
                   success: function(response) {
-                      console.log(response)
+                     var notas = '<ul class="collapsible" data-collapsible="accordion">'
                       for (i in response) {
-                          $('#asignaturas').append('<h3 style="color: #FFF" id=' + response[i]['codAsig'] + '>' + response[i]['nombre'] + '<a href="#" class="link" onclick="listarAlumnos(' + response[i]['codAsig'] + ')"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>' + '</h3>');
-                          $('#estadisticas').append('<h3 style="color: #FFF" id=' + response[i]['codAsig'] + '>' + response[i]['nombre'] + '<a href="#" class="link" onclick="generarGrafico(' + response[i]['codAsig'] + ",'" + response[i]['nombre'] + "'" + ')"> <span class="glyphicon glyphicon-stats" aria-hidden="true"></span></a>' + '</h3>');
+
+                        notas+= '<li>'
+                        notas+= '<div class="collapsible-header"><i class="mdi-action-list"></i>'
+                        notas+= response[i]['nombre']
+                        notas+= '</div><div class="collapsible-body" id=b'+response[i]['codAsig']+'><p>'
+                        notas+='</p></div></li>'
+
+
+
+
+                          listarAlumnos(response[i]['codAsig'])
+
+                          $('#estadisticas').append('<h3  id=' + response[i]['codAsig'] + '>' + response[i]['nombre'] + '<a href="#" class="link" onclick="generarGrafico(' + response[i]['codAsig'] + ",'" + response[i]['nombre'] + "'" + ')"> <span class="small mdi-editor-insert-chart black-text"></span></a>' + '</h3>');
                       }
+                        notas+= '</ul>'
+                        $('#asignaturas').append(notas)
+                        $('.collapsible').collapsible({
+                              accordion : false });
+
+
                   }
               }) //Fin Ajax
       } //Fin CargarAsignatura
   function listarAlumnos(codAsig) {
+
+
           asig = codAsig
           parametros = {
                   asig: codAsig
@@ -29,20 +48,35 @@
                   data: parametros,
                   //Funcion de respuesta
                   success: function(response) {
-                      $('#listaAlumnos').html('');
-                      $('#listaAlumnos').append('<h1>' + $('#' + codAsig).text() + '</h1><h3>Nombre: </h1>');
-                      console.log(response)
-                      for (i in response) {
-                          $('#listaAlumnos').append('<h4 style="color: #FFF">' + response[i]['nombre'] + " " + response[i]['apellido'] + '<span style="color: #333">' + " <a href='#' onclick='listarNotas(" + '"' + response[i]['usuario'] + '"' + ")' class='link'><span class='glyphicon glyphicon-search' aria-hidden='true'></span>" + "</a></span>" + "</h4>" + "<div id='" + response[i]['usuario'] + "' class='alumnos' style='display:none; overflow:hidden'>" + "<div class='notas'>" + "<div class=tr1>1º Trimestre: </div>" + "<div class=tr2>2º Trimestre: </div>" + "<div class=tr3>3º Trimestre: </div>" + "</div>" + "<div class='notasE col-xs-6' style='display:none;'>" + "<div class='col-lg-3'><span style='font-size:120%'>Nota: </span> <input  class='form-control' type='number' min='0' max='10' value='5'></div>" + "<div class='col-lg-3'><span style='font-size:120%'>Trismetre: </span> <input class='form-control' type='number' min='1' max='3' value='1'></div>" + "<div class='col-lg-4' style='margin-top: 26px'><span style='font-size:120%'></span> <span class='glyphicon glyphicon-ok btn btn-xs btn-success ' aria-hidden='true' style='color:white;margin-left: 5px;top;top: 0px;' onclick='guardarNota()'></span></div>" + "</div>" + "</div>");
-                      }
+                     var alum = "<ul  class='collapsible' data-collapsible='accordion'>"
+                    for (i in response) {
+                    alum+="<li>"
+
+                    alum +="<div class='collapsible-header' onclick='listarNotas("+codAsig+",this,"+'"'+response[i]['usuario']+'"'+")' >"+response[i]['nombre']
+                    alum+=" "+ response[i]['apellido'] +" </div>"
+                    alum+="<div class='collapsible-body'>"
+                    alum+="<p class='tr1'></p>"
+                    alum+="<p class='tr2'></p>"
+                    alum+="<p class='tr3'></p>"
+                    alum+="<p class='Anotas'></p>"
+                    alum+="</div></li>";
+
+                 }
+                 alum+= "</ul>"
+                  $('#b'+codAsig).children().append(alum)
+                    $('.collapsible').collapsible({
+                              accordion : false });
+
                   }
               }) //Fin Ajax
       } //Fin Listar Alumno
   var alumnoE;
 
-  function listarNotas(alumn) {
-          parametros = {
-                  asig: asig,
+  function listarNotas(asi,t,alumn) {
+    console.log(t,"this")
+            asig = asi;
+            parametros = {
+                  asig: asi,
                   alumno: alumn
               }
               //Funcion Ajax
@@ -53,12 +87,11 @@
                   data: parametros,
                   //Funcion de respuesta
                   success: function(response) {
-                      $(".alumnos").hide();
-                      $('#' + alumn).show();
-                      $('.notasE').show();
-                      $('.tr1').html('1º Trimestre: ')
-                      $('.tr2').html('2º Trimestre: ')
-                      $('.tr3').html('3º Trimestre: ')
+
+                     $('.tr1').html('1º Trimestre: ')
+                     $('.tr2').html('2º Trimestre: ')
+                     $('.tr3').html('3º Trimestre: ')
+                     $('.Anotas').html('Añadir Nota nueva:')
                       alumnoE = alumn;
                       for (i in response) {
                           if (response[i]['trimestre'] == 1) {
@@ -71,18 +104,34 @@
                               $('.tr3').append(response[i]['nota'] + " | ");
                           }
                       }
+
+                    inpN="<div class='row'>"
+                    inpN+="<div class='col m6 s12'>"
+                    inpN+="<div class='input-field'>"
+                    inpN+="<input id='notaA' type='number' min=0 max=10 /><label for='notaA'>Nota</span>"
+                    inpN+="</div>"
+                    inpN+="</div>"
+                    inpN+="<div class='col m6 s12'>"
+                    inpN+="<div class='input-field'>"
+                    inpN+="<input id='trimestreA' type='number' min=1 max=3 /><label for='trimestreA'>Trimestre</span>"
+                    inpN+="</div>"
+                    inpN+="</div><a href='#' onclick='guardarNota(this)'> <i class='small mdi-content-save green-text'></i></a>"
+                    inpN+="</div>"
+                    $(t).next().find('.Anotas').append(inpN)
                   }
               }) //Fin Ajax
       } //Fin Listar Notas
-  function guardarNota() {
-      var nota = $("#" + alumnoE + " input")[0].value
-      var trimestre = $("#" + alumnoE + " input")[1].value
+  function guardarNota(t) {
+
+      var nota = $("#notaA").val()
+      var trimestre = $("#trimestreA").val()
       var parametros = {
               alumno: alumnoE,
               nota: nota,
               tri: trimestre,
               asig: asig
           }
+          console.log(parametros)
           //Funcion Ajax
       $.ajax({
           url: 'guardarNota.php',
@@ -90,7 +139,9 @@
           data: parametros,
           //Funcion de respuesta
           success: function(response) {
-              listarNotas(parametros.alumno)
+            $(t).parent().parent().parent().prev().trigger('click')
+            $(t).parent().parent().parent().prev().trigger('click')
+            notificacion("Nota guardada")
           }
       })
   }

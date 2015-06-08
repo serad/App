@@ -18,5 +18,7 @@ else {
 
     $consulta = "UPDATE $tabla SET nombre='$nombre',apellido='$apellido',email='$email',pass='$pass' where usuario = '$usuario'";
     $db->consulta($consulta);
+
+    echo '1';
 }
 ?>

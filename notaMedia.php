@@ -15,7 +15,7 @@ $result = $db->consulta($query);
 
 $rows = array();
 while ($r = mysqli_fetch_assoc($result)) {
-    $rows[] = array_map('utf8_encode', $r);
+    $rows[] =  $r;
 }
 
 echo json_encode($rows);

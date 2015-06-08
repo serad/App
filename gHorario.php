@@ -1,7 +1,14 @@
 <?php
 
 //Guarda el horario en un archivo
-$hor = fopen("horario", "w");
+
+session_start();
+$usuario = $_SESSION['usuario'];
+$tabla = $_SESSION['tabla'];
+
+
+$dir = "$tabla/$usuario";
+$hor = fopen("$dir/horario", "w");
 $html = $_POST['horario'];
 fwrite($hor, $html);
 fclose($hor);

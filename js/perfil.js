@@ -21,6 +21,7 @@ function cargarPerfil() {
 }
 
 function guardarPerfil() {
+
     if ($('#inputNom').val() != datos.nombre) {
         if ($('#inputNom').val() != "") {
             datos.nombre = $('#inputNom').val();
@@ -47,7 +48,7 @@ function guardarPerfil() {
         data: datos,
         dataType: 'json',
         success: function(response) {
-            console.log(response);
+            Materialize.toast('Perfil editado con exito', 4000)
         }
     }) //cierra ajax
 } //cierra funcion

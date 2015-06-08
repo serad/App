@@ -9,10 +9,11 @@
 
         <link href="css/materialize.min.css" rel="stylesheet">
         <link href="css/indexApp.css" rel="stylesheet">
-        <link href="css/horario.css" rel="stylesheet">
+          <link href='css/fullcalendar.css' rel='stylesheet' />
+        <link href='css/fullcalendar.print.css' rel='stylesheet' media='print' />
 
     </head>
-    <body onload="cargarHorario(), cargarAsignaturas(), cargarArchivos(), comprobarLog()" id="gradient">
+    <body onload="cargaIni()">
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper indigo" >
@@ -39,7 +40,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#mensajes" onclick="mostrar('mensajes',this)">
+                                <a href="#mensajes" onclick="mostrar('mensajes',this),verMensajes()">
                                 Mensajes
                                 </a>
                             </li>
@@ -54,7 +55,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="mdi-action-exit-to-app deep-orange-text accent-4" style="font-size: 25px"></a>
+                                <a href="#" onclick="cerrarSesion()">
+                                    <i class="mdi-action-exit-to-app deep-orange-text accent-4"></i></a>
                             </li>
                         </ul>
                         <ul class="side-nav" id="navLateral">
@@ -66,7 +68,7 @@
                             </li>
                             <li>
                                 <a href="#estadisticas" onclick="mostrar('estadisticas')">
-                                Estadìsticas
+                                Estadísticas
                                 </a>
                             </li>
                             <li>
@@ -91,72 +93,119 @@
             </nav>
 
         </div>
+        <div  class="principal cont row" id="principal">
+            <div class="hide-on-large-only"><h4>Bienvenido de nuevo <span id='nombre2'></span> </h4>
+                <h4>Tienes <span id='nm2'></span> mensaje/s nuevo/s </h4>
+                <h4>Ultima fecha de conexión <span id='ultimaConex2'></span> </h4>
+            </div> 
+
+          <div class="input-field col m6 s12 yellow accent-1 z-depth-2">
+          <h5>Post-it   </h5>
+            <textarea id="postit" class="materialize-textarea"></textarea>
+            <a href="#"><i onclick="guardarPost()" class="left mdi-content-save small blue-text"></i></a>
+          </div>
+            <div  class="col m4 offset-m1 s12 hide-on-med-and-down">
+                <h5>Calendario</h5>
+                <div id='calendar'>
+                    <div id="calendarTrash" class="calendar-trash" style="height: 300px;width: 300px"><a href="#"><i class="mdi-action-delete medium red-text"></i></a><a href="#"><i onclick="guardaEventos()" class="mdi-content-save medium blue-text"></i></a></div>
+                </div>
+            </div>
+
+          
+        
+            <!-- MODAL -->
+            <div id="infoModal" class="modal bottom-sheet" style="display: block; opacity: 0; bottom: -100%;">
+                <div class="modal-content">
+                    <h4>Bienvenido de nuevo <span id='nombre'></span> </h4>
+                    <h4>Tienes <span id='nm'></span> mensaje/s nuevo/s </h4>
+                    <h4>Ultima fecha de conexión <span id='ultimaConex'></span> </h4>
+
+                </div>
+            </div>
+            <!--<div class="col m8"id="iniAlumno">grafico ini alumno</div>-->
+
+
+        </div>
         <div class="container">
 
-            <div class="contenido" id="contenedor">
-                <!-- el horario se trae mediante una peticion ajax y se añade con JS  -->
-                <div class="principal cont" id="principal">Hola</div>
-
-            </div>
-            <div class="cont" id="estadisticas"  style="display: none">
+           
+            <div class="cont hide" id="estadisticas">
                 <h2>Estadísticas</h2>
-                <div id="grafico"> AKI VA EL GRAFICO</div>
+                   <br>
+                <div class="row">
+                 <div class="col m8" id="grafico"></div>
+                </div>
             </div>
-            <div class="cont" id="notas" style="display: none">
+            <div class="cont hide" id="notas" >
                 <h1>Notas</h1>
+                   <br>
                 <div id="asignaturas"></div>
                 <hr>
                 <div id="listaAlumnos"></div>
             </div>
-            <div class="cont" id="mensajes" style="display: none">
+            <div class="cont hide" id="mensajes">
+
                 <h2>Mensajes</h2>
-                <button class="btn btn-info" onclick="verMensajes(this)"> Ver mensajes </button>
-                <button class="btn btn-info" onclick="$(this).siblings('div').hide(),$('#formEnviar').show()"> Enviar Mensaje </button>
+                   <br>
+                <div class="row"><button class="btn deep-orange" onclick="verMensajes()"> Ver mensajes </button>
+                <button class="btn deep-orange accent-4" onclick="$('#mensajesRecibidos').hide(),$('#formEnviar').show()"> Escribir Mensaje </button></div>
                 <div id="mensajesRecibidos" style="display:none">
                     <fieldset >
                         <legend>Mensajes Recibidos:</legend>
                     </fieldset>
                 </div>
                 <div id="formEnviar" style="display:none">
-                    <div class="form-group">
-                        <fieldset>
-                            <legend>Enviar mensaje a:</legend>
-                            <label for="InputUsuario">Destinatario</label>
-                            <input type="email" class="form-control" id="InputUsuario" placeholder="Usuario destinatario">
-                        </div>
-                        <div class="form-group">
+
+<div class="row">
+<div class="col m6 s12">
+<div class="input-field">
+<input id="InputUsuario" type="text" name="usr" class="validate" maxlength="25">
+<label for="InputUsuario">Destinatario</label>
+</div>
+</div>
+</div>
+                        <div class="row">
+                        <div class="col m12 s12">
+                        <div class="input-field">
+                            <input type="text" class="validate" id="InputAsunto" length="120" maxlength="120">
                             <label for="InputAsunto">Asunto</label>
-                            <input type="text" class="form-control" id="InputAsunto" placeholder="Asunto del mensaje">
                         </div>
-                        <div class="form-group">
-                            <label for="InputTextArea">Mensaje</label>
-                            <textarea class="form-control" id="InputTextArea" rows="5" style='resize:none;'></textarea>
                         </div>
-                        <button class="btn btn-default" onclick="enviarMensaje()">Enviar</button>
+                        </div>
+
+<div class="row">
+ <div class="input-field col m12 s12">
+            <textarea id="InputTextArea" class="materialize-textarea" length="500" maxlength="500"></textarea>
+            <label for="InputTextArea">Textarea</label>
+          </div>
+        </div>
+
+         <button class="btn deep-orange" onclick="enviarMensaje()">Enviar</button>
                     </fieldset>
                 </div>
             </div>
 
-            <div class="cont" id="archivos" style="display: none">
+            <div class="cont hide" id="archivos">
 
                 <div class="row">
-
-                    <div class="file-field input-field">  
+                    <h2>Archivos</h2>
+                    <br>
+                    <div class="file-field input-field">
                       <div class="valign-wrapper">
                         <input class="file-path validate" id="nArchivo" type="text" onchange="mostrarSubir()" disabled />
-                     
+
                        <a href="#" onclick="vaciarFile()"><i class="valign small mdi-content-clear red-text"></i> </a>
                         <a href="#" id="btnS" class="hide" onclick="subirArchivos()"><i class="valign small mdi-file-cloud-upload"></i></a>
                       </div>
                         <div class="btn deep-orange accent-2" id="btnA">
                           <span><i class="mdi-editor-insert-drive-file" id="iconoA"></i></span>
                             <input  id="archi" type="file"  />
-                        </div> 
-                                               
-                    </div> 
+                        </div>
+
+                    </div>
                 </div>
- 
-                <div id="lArchivos"></div>
+
+                <div id="lArchivos" class="row"></div>
             </div>
 
   <!-- Modal Structure -->
@@ -168,12 +217,31 @@
 
     </div>
     <div class="modal-footer">
-      
+
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">No</a>
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red-text" onclick="borrarArchivo()">Borrar</a>
     </div>
 
   </div>
+
+
+
+<div id="modalMensajes" class="modal">
+    <div class="modal-content">
+      <h5>Borrar</h5>
+      <p>El mensaje se eliminará
+      <span id="mensajeId" style="display:none"></span>
+      </b>
+    </div>
+    <div class="modal-footer">
+
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">No</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red-text" onclick="borrarMensaje()">Borrar</a>
+    </div>
+
+  </div>
+
+
         </div>
 
 
@@ -184,6 +252,14 @@
         <script src="js/otros/highcharts.js"></script>
         <script src="js/otros/materialize.min.js"></script>
         <script src="js/otros/exporting.js"></script>
+        <script src='js/otros/moment.min.js'></script>
+        <script src='js/otros/fullcalendar.js'></script>
+        <script src='js/otros/es.js'></script>
+        <script src='js/otros/jquery-ui.js'></script>
+
+
+
+
         <script src="js/cargarHorario.js"></script>
         <script src="js/indexsScripts.js"></script>
         <script src="js/archivos.js"></script>
@@ -192,22 +268,62 @@
         <script src="js/notificacion.js"></script>
         <script src="js/mensajes.js"></script>
         <script src="js/cargaGrafico.js"></script>
+          <script src="js/cargaInicial.js"></script>
+           <script src="js/calendario.js"></script>
+
         <script type="text/javascript">
+
+      
+        function cargarPost() {
+          $.ajax({
+                url: 'cargarPost.php',
+                type: 'post',
+                
+                //Funcion de respuesta
+                success: function (response) {
+                    $('#postit').val(response)
+                   
+                }
+            });
+
+        }
+
+        function guardarPost() {
+             var z = $('#postit').val()
+
+       
+            var parametros = {notas: z}
+            $.ajax({
+                url: 'guardarPost.php',
+                data: parametros,
+                type: 'post',                
+
+                //Funcion de respuesta
+                success: function (response) {
+
+                    console.log(response, "holaaa")
+                }
+            });
+
+
+        }
+
+
             $(document).ready(function(){
-             
-            //$('.file-path').append( '<button class="btn btn-primary" onclick="subirArchivos()">Enviar</button> ')
+            calendario();
             $('.tooltipped').tooltip({delay: 50});
+            $('.modal-trigger').leanModal();
             $('.button-collapse').sideNav({
             edge: 'left', // Choose the horizontal origin
             closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-
-            }
-        );
-
-         
+             });
+            $('#infoModal').openModal()
 
 
+            $('.collapsible').collapsible({
+             accordion : false });
             })
+
             function cargarModal(nombre) {
                 $('#archivo').html(nombre)
                $('#modal1').openModal();
