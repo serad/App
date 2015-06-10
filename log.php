@@ -7,10 +7,6 @@ $usuario = strtolower($_POST['usuario']);
 $pass = $_POST['pass'];
 $tabla = $_POST['tabla'];
 
-//$usuario = 'admin';
-//$pass = 'admin';
-//$tabla = 'alumnos';
-
 sleep(2);
 $consulta = "SELECT usuario FROM $tabla WHERE usuario = '$usuario' && pass ='$pass';";
 

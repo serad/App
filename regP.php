@@ -1,5 +1,4 @@
 <?php
-
 include 'dbCon.php';
 
 $db = new dbCon();
@@ -9,21 +8,24 @@ $pass = $_POST['pass'];
 $tabla = "profesores";
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
-$email = $_POST['email'];  
-$asignaturas = $_POST['asignaturas'];     
-
+$email = $_POST['email'];
+$asignaturas = $_POST['asignaturas'];
 
 $consulta = "INSERT INTO $tabla VALUES ('$usuario','$pass','$nombre','$apellido','$email','')";
 
-$db->consulta($consulta);
-
-
-foreach ($asignaturas as  $value) {
-	$con = "INSERT INTO clasesimpartir values('$usuario','$value')";
-	$db->consulta($con);
+$respuesta = $db->consulta($consulta);
+if ($respuesta == 1) {
+    $dir = "$tabla/$usuario";
+    mkdir($dir);
+    fopen("$dir/eventos", "w");
+    fopen("$dir/post", "w");
 }
+if ($respuesta == 1) {
 
-
-echo $consulta;
-
+    foreach ($asignaturas as $value) {
+        $con = "INSERT INTO clasesimpartir values('$usuario','$value')";
+        $db->consulta($con);
+    }
+    echo $respuesta;
+}
 ?>

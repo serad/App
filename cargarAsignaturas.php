@@ -18,7 +18,7 @@ else {
 
     $rows = array();
     while ($r = mysqli_fetch_assoc($result)) {
-        $rows[] =  $r;
+        $rows[] = $r;
     }
 
     echo json_encode($rows);

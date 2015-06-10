@@ -3,107 +3,70 @@
     <head>
         <title>Editar perfil</title>
         <meta charset='utf-8'>
+        <link rel="icon" href="img/favicon1.ico">
         <link href="css/materialize.min.css" rel="stylesheet">
-      <style type="text/css">
-
-    h2 {
-        color: #ff6e40;
-
-    }
-
-    .titulo{
-      font-size: 3rem;
-    padding-bottom: 10px;
-    padding-top: 10px;
-
-}
-    #errorMsg{
-    font-size: 1.7rem;
-
-}
-.reg-container{
-    padding: 1.5rem 1.5rem;
-    margin: 0 auto;
-    max-width: 1280px;
-    width: 100%;
-    margin-top: 15px;
-}
-
-
-  @media only screen and (min-width : 601px){.reg-container{width:75%}}
-  @media only screen and (min-width : 993px){.reg-container{width:50%}}
-
-</style>
+        <link href="css/editarPerfil.css" rel="stylesheet">
     </head>
     <body onload="cargarPerfil()">
         <div class="indigo center">
-        <span class="titulo white-text">Editar perfil</span>
-    </div>
-    <!-- Editar perfil -->
-  <div class="reg-container z-depth-1 indigo lighten-5" >
-    <!-- Datos personales -->
-    <div class="row">
-        <div class="col m6 s12">
-            <div class="input-field">
-                <input id="inputNom" type="text" name="nombre" placeholder="" data-delay="500" data-position="top" data-tooltip="De 5 a 35 caracteres" class="validate tooltipped" maxlength="25">
-                <label for="inputNom">Nombre</label>
-            </div>
+            <span class="titulo white-text">Editar perfil</span>
         </div>
-          <div class="col m6 s12">
-            <div class="input-field">
-                <input id="inputApe" type="text" name="apellido"  placeholder="" data-delay="500" data-position="top" data-tooltip="De 5 a 35 caracteres" class="validate tooltipped" maxlength="25">
-                <label for="inputApe">Apellido</label>
-            </div>
-        </div>
-    </div>
-    <!-- Datos de usuario -->
-    <div class="row">
-       
-         <div class="col m6 s12">
-            <div class="input-field">
-                <input id="inputEmail" type="email" name="mail" placeholder="" class="validate"  maxlength="25">
-                <label for="inputEmail">Email</label>
-            </div>
-        </div>
-        <!-- Contraseña -->
-        <div class="col m6 s12">
-            <div class="input-field">
-                <input id="inputPass" type="password" name="pass" placeholder="" data-delay="500" data-tooltip="De 5 a 25 caracteres" class="validate tooltipped"  maxlength="25">
-                <label for="inputPass">Contraseña</label>
-            </div>
-        </div>
-    </div>
-        <!-- Botones -->
-    <div class="row">
-        <div class="col m8 offset-m2 s12">
+        <!-- Editar perfil -->
+        <div class="reg-container z-depth-1 indigo lighten-5" >
+            <!-- Datos personales -->
             <div class="row">
-                <div class="col m6">
-                    <button class="btn btn-large waves-effect waves-light deep-orange accent-4 z-depth-2" type="button" onclick="window.history.go(-1)"><span class="hide-on-med-and-down">Volver</span><i class="mdi-hardware-keyboard-backspace left"></i>
-                    </button>
+                <div class="col m6 s12">
+                    <div class="input-field">
+                        <input id="inputNom" type="text" name="nombre" placeholder="" data-delay="500" data-position="top" data-tooltip="De 5 a 35 caracteres" class="validate tooltipped" maxlength="25">
+                        <label for="inputNom">Nombre</label>
+                    </div>
                 </div>
-                <div class="col m5 offset-m1 ">
-                    <button class="btn btn-large waves-effect waves-light deep-orange accent-2 z-depth-2" type="button" onclick="guardarPerfil()"><span class="hide-on-med-and-down">Guardar</span><i class="mdi-content-save right"></i>
-                    </button>
+                <div class="col m6 s12">
+                    <div class="input-field">
+                        <input id="inputApe" type="text" name="apellido"  placeholder="" data-delay="500" data-position="top" data-tooltip="De 5 a 35 caracteres" class="validate tooltipped" maxlength="25">
+                        <label for="inputApe">Apellido</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Datos de usuario -->
+            <div class="row">
+                <div class="col m6 s12">
+                    <div class="input-field">
+                        <input id="inputEmail" type="email" name="mail" placeholder="" class="validate"  maxlength="25">
+                        <label for="inputEmail">Email</label>
+                    </div>
+                </div>
+                <!-- Contraseña -->
+                <div class="col m6 s12">
+                    <div class="input-field">
+                        <input id="inputPass" type="password" name="pass" placeholder="" data-delay="500" data-tooltip="De 5 a 25 caracteres" class="validate tooltipped"  maxlength="25">
+                        <label for="inputPass">Contraseña</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Botones -->
+            <div class="row">
+                <div class="col m8 offset-m2 s12">
+                    <div class="row">
+                        <div class="col m6">
+                            <button class="btn btn-large waves-effect waves-light deep-orange accent-4 z-depth-2" type="button" onclick="window.history.go(-1)"><span class="hide-on-med-and-down">Volver</span><i class="mdi-hardware-keyboard-backspace left"></i>
+                            </button>
+                        </div>
+                        <div class="col m5 offset-m1 ">
+                            <button class="btn btn-large waves-effect waves-light deep-orange accent-2 z-depth-2" type="button" onclick="guardarPerfil()"><span class="hide-on-med-and-down">Guardar</span><i class="mdi-content-save right"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-  </div>
-                   
-                    <!-- FrameWorks -->
-    <script src="js/otros/jquery-2.1.3.min.js"></script>
-    <script src="js/otros/materialize.min.js"></script>
-
-    <script src="js/log.js"></script>
-    <script src="js/validator.js"></script>
-    <script src="js/perfil.js"></script>
-    <script src="js/reg.js"></script>
-    <script src="js/notificacion.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('.tooltipped').tooltip({delay: 50});
-        });
-    </script>
-                   
-                </body>
-            </html>
+        <!-- FrameWorks -->
+        <script src="js/otros/jquery-2.1.3.min.js"></script>
+        <script src="js/otros/materialize.min.js"></script>
+        <script src="js/log.js"></script>
+        <script src="js/validator.js"></script>
+        <script src="js/perfil.js"></script>
+        <script src="js/reg.js"></script>
+        <script src="js/notificacion.js"></script>
+    </body>
+</html>

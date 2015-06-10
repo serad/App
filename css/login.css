@@ -1,37 +1,45 @@
-  html, body {
-      height: 100%;
-  }
-  label {
-      color: #212121;
-  }
-  h2 {
-      color: #ff6e40;
-  }
-  .titulo {
-      font-size: 3rem;
-      padding-bottom: 10px;
-      padding-top: 10px;
-  }
-  #errorMsg {
-      font-size: 1.7rem;
-  }
-  .login-container {
-      padding: 0 1.5rem;
-      margin: 0 auto;
-      max-width: 1280px;
-      width: 100%;
-      margin-top: 15px;
-  }
-  #carga {
-      padding-top: 10px;
-  }
-  @media only screen and (min-width: 601px) {
-      .login-container {
-          width: 85%
-      }
-  }
-  @media only screen and (min-width: 993px) {
-      .login-container {
-          width: 50%
-      }
-  }
+html, body {
+    height: 100%;
+}
+
+label {
+    color: #212121;
+}
+
+h2 {
+    color: #ff6e40;
+}
+
+.titulo {
+    font-size: 3rem;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+#errorMsg {
+    font-size: 1.7rem;
+}
+
+.login-container {
+    padding: 0 1.5rem;
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+#carga {
+    padding-top: 10px;
+}
+
+@media only screen and (min-width: 601px) {
+    .login-container {
+        width: 85%
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .login-container {
+        width: 50%
+    }
+}

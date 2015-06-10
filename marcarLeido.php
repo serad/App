@@ -11,11 +11,7 @@ else {
 
     $consulta = "UPDATE mensajes SET leido = 1 where idMensaje = '$id'";
 
-
     $result = $db->consulta($consulta);
-
-
-
 
     echo $result;
 }

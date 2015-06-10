@@ -10,9 +10,11 @@
     padding-right: 2em;
     position: relative;
 }
+
 table {
     border: none !important;
 }
+
 .horas {
     width: 70px;
     background-color: #red;
@@ -22,6 +24,7 @@ table {
     user-select: none;
     cursor: default;
 }
+
 .hor {
     background-color: #DDECFA;
     border: 2px #f4f7fa solid;
@@ -33,36 +36,45 @@ table {
     cursor: default;
     margin-bottom: 3px;
 }
+
 .table-curved {
     border-collapse: separate;
     border-spacing: 2px;
 }
+
 .table-curved {
     border: solid #ccc 1px;
     border-radius: 6px;
     border-left: 0px;
 }
+
 .table-curved td, .table-curved th {
     padding-right: 10px;
     border-left: 1px solid #ccc;
     border-top: 1px solid #ccc;
 }
+
 .table-curved th {
     border: none;
     font-size: 120%;
 }
+
 .table-curved th:first-child {
     border-radius: 6px;
 }
+
 .table-curved th:last-child {
     border-radius: 6px;
 }
+
 .table-curved th:only-child {
     border-radius: 6px;
 }
+
 .table-curved tr:last-child td:first-child {
     border-radius: 6px;
 }
+
 .table-curved tr:last-child td:last-child {
     border-radius: 6px;
 }

@@ -2,16 +2,12 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-
         <link rel="icon" href="img/favicon1.ico">
-
-        <title>Pagina principal</title>
-
+        <title>Página principal</title>
         <link href="css/materialize.min.css" rel="stylesheet">
         <link href="css/indexApp.css" rel="stylesheet">
-          <link href='css/fullcalendar.css' rel='stylesheet' />
+        <link href='css/fullcalendar.css' rel='stylesheet' />
         <link href='css/fullcalendar.print.css' rel='stylesheet' media='print' />
-
     </head>
     <body onload="cargaIni()">
         <div class="navbar-fixed">
@@ -56,7 +52,7 @@
                             </li>
                             <li>
                                 <a href="#" onclick="cerrarSesion()">
-                                    <i class="mdi-action-exit-to-app deep-orange-text accent-4"></i></a>
+                                <i class="mdi-action-exit-to-app deep-orange-text accent-4"></i></a>
                             </li>
                         </ul>
                         <ul class="side-nav" id="navLateral">
@@ -87,166 +83,131 @@
                                 </a>
                             </li>
                         </ul>
-
                     </div>
                 </div>
             </nav>
-
         </div>
         <div  class="principal cont row" id="principal">
             <div class="hide-on-large-only"><h4>Bienvenido de nuevo <span id='nombre2'></span> </h4>
                 <h4>Tienes <span id='nm2'></span> mensaje/s nuevo/s </h4>
-                <h4>Ultima fecha de conexión <span id='ultimaConex2'></span> </h4>
-            </div> 
-
-          <div class="input-field col m6 s12 yellow accent-1 z-depth-2">
-          <h5>Post-it   </h5>
-            <textarea id="postit" class="materialize-textarea"></textarea>
-            <a href="#"><i onclick="guardarPost()" class="left mdi-content-save small blue-text"></i></a>
-          </div>
+                <h4>Última fecha de conexión <span id='ultimaConex2'></span> </h4>
+            </div>
+            <div class="input-field col m6 s12 yellow accent-1 z-depth-2">
+                <h5>Post-it</h5>
+                <textarea id="postit" class="materialize-textarea"></textarea>
+                <a href="#"><i onclick="guardarPost()" class="left mdi-content-save small blue-text"></i></a>
+            </div>
             <div  class="col m4 offset-m1 s12 hide-on-med-and-down">
                 <h5>Calendario</h5>
                 <div id='calendar'>
-                    <div id="calendarTrash" class="calendar-trash" style="height: 300px;width: 300px"><a href="#"><i class="mdi-action-delete medium red-text"></i></a><a href="#"><i onclick="guardaEventos()" class="mdi-content-save medium blue-text"></i></a></div>
+                    <div id="calendarTrash" class="calendar-trash"><a href="#"><i class="mdi-action-delete medium red-text"></i></a><a href="#"><i onclick="guardaEventos()" class="mdi-content-save medium blue-text"></i></a></div>
                 </div>
             </div>
-
-          
-        
             <!-- MODAL -->
             <div id="infoModal" class="modal bottom-sheet" style="display: block; opacity: 0; bottom: -100%;">
                 <div class="modal-content">
                     <h4>Bienvenido de nuevo <span id='nombre'></span> </h4>
                     <h4>Tienes <span id='nm'></span> mensaje/s nuevo/s </h4>
-                    <h4>Ultima fecha de conexión <span id='ultimaConex'></span> </h4>
-
+                    <h4>Última fecha de conexión <span id='ultimaConex'></span> </h4>
                 </div>
             </div>
             <!--<div class="col m8"id="iniAlumno">grafico ini alumno</div>-->
-
-
         </div>
         <div class="container">
-
-           
             <div class="cont hide" id="estadisticas">
-                <h2>Estadísticas</h2>
-                   <br>
+                <h3>Estadísticas</h3>
+                <br>
                 <div class="row">
-                 <div class="col m8" id="grafico"></div>
+                    <div class="col m4 s12" id="asignaturasGra"></div>
+                    <div class="col m8 s12" id="grafico"></div>
                 </div>
             </div>
             <div class="cont hide" id="notas" >
-                <h1>Notas</h1>
-                   <br>
+                <h3>Notas</h3>
+                <br>
                 <div id="asignaturas"></div>
                 <hr>
                 <div id="listaAlumnos"></div>
             </div>
             <div class="cont hide" id="mensajes">
-
-                <h2>Mensajes</h2>
-                   <br>
-                <div class="row"><button class="btn deep-orange" onclick="verMensajes()"> Ver mensajes </button>
-                <button class="btn deep-orange accent-4" onclick="$('#mensajesRecibidos').hide(),$('#formEnviar').show()"> Escribir Mensaje </button></div>
+                <h3>Mensajes</h3>
+                <br>
+                <div class="row"><button class="btn deep-orange" onclick="verMensajes()">Ver mensajes </button>
+                <button class="btn deep-orange accent-4" onclick="$('#mensajesRecibidos').hide(),$('#formEnviar').show()">Escribir Mensaje </button></div>
                 <div id="mensajesRecibidos" style="display:none">
                     <fieldset >
                         <legend>Mensajes Recibidos:</legend>
                     </fieldset>
                 </div>
                 <div id="formEnviar" style="display:none">
-
-<div class="row">
-<div class="col m6 s12">
-<div class="input-field">
-<input id="InputUsuario" type="text" name="usr" class="validate" maxlength="25">
-<label for="InputUsuario">Destinatario</label>
-</div>
-</div>
-</div>
-                        <div class="row">
+                    <div class="row">
+                        <div class="col m6 s12">
+                            <div class="input-field">
+                                <input id="InputUsuario" type="text" name="usr" class="validate" maxlength="25">
+                                <label for="InputUsuario">Destinatario</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col m12 s12">
-                        <div class="input-field">
-                            <input type="text" class="validate" id="InputAsunto" length="120" maxlength="120">
-                            <label for="InputAsunto">Asunto</label>
+                            <div class="input-field">
+                                <input type="text" class="validate" id="InputAsunto" length="120" maxlength="120">
+                                <label for="InputAsunto">Asunto</label>
+                            </div>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col m12 s12">
+                            <textarea id="InputTextArea" class="materialize-textarea" length="500" maxlength="500"></textarea>
+                            <label for="InputTextArea">Mensaje: </label>
                         </div>
-                        </div>
-
-<div class="row">
- <div class="input-field col m12 s12">
-            <textarea id="InputTextArea" class="materialize-textarea" length="500" maxlength="500"></textarea>
-            <label for="InputTextArea">Textarea</label>
-          </div>
-        </div>
-
-         <button class="btn deep-orange" onclick="enviarMensaje()">Enviar</button>
-                    </fieldset>
+                    </div>
+                    <button class="btn deep-orange" onclick="enviarMensaje()">Enviar</button>
                 </div>
             </div>
-
             <div class="cont hide" id="archivos">
-
                 <div class="row">
-                    <h2>Archivos</h2>
+                    <h3>Archivos</h3>
                     <br>
                     <div class="file-field input-field">
-                      <div class="valign-wrapper">
-                        <input class="file-path validate" id="nArchivo" type="text" onchange="mostrarSubir()" disabled />
-
-                       <a href="#" onclick="vaciarFile()"><i class="valign small mdi-content-clear red-text"></i> </a>
-                        <a href="#" id="btnS" class="hide" onclick="subirArchivos()"><i class="valign small mdi-file-cloud-upload"></i></a>
-                      </div>
+                        <div class="valign-wrapper">
+                            <input class="file-path validate" id="nArchivo" type="text" onchange="mostrarSubir()" disabled />
+                            <a href="#" onclick="vaciarFile()"><i class="valign small mdi-content-clear red-text"></i> </a>
+                            <a href="#" id="btnS" class="hide" onclick="subirArchivos()"><i class="valign small mdi-file-cloud-upload"></i></a>
+                        </div>
                         <div class="btn deep-orange accent-2" id="btnA">
-                          <span><i class="mdi-editor-insert-drive-file" id="iconoA"></i></span>
+                            <span><i class="mdi-editor-insert-drive-file" id="iconoA"></i></span>
                             <input  id="archi" type="file"  />
                         </div>
-
                     </div>
                 </div>
-
                 <div id="lArchivos" class="row"></div>
             </div>
-
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h5>Borrar</h5>
-      <p>Esta a punto de borrar<b>
-      <span id="archivo"></span></b></p>
-
-    </div>
-    <div class="modal-footer">
-
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">No</a>
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red-text" onclick="borrarArchivo()">Borrar</a>
-    </div>
-
-  </div>
-
-
-
-<div id="modalMensajes" class="modal">
-    <div class="modal-content">
-      <h5>Borrar</h5>
-      <p>El mensaje se eliminará
-      <span id="mensajeId" style="display:none"></span>
-      </b>
-    </div>
-    <div class="modal-footer">
-
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">No</a>
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red-text" onclick="borrarMensaje()">Borrar</a>
-    </div>
-
-  </div>
-
-
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h5>Borrar</h5>
+                    <p>Esta a punto de borrar<b>
+                    <span id="archivo"></span></b></p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">No</a>
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red-text" onclick="borrarArchivo()">Borrar</a>
+                </div>
+            </div>
+            <div id="modalMensajes" class="modal">
+                <div class="modal-content">
+                    <h5>Borrar</h5>
+                    <p>El mensaje se eliminará
+                    <span id="mensajeId" style="display:none"></span>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">No</a>
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red-text" onclick="borrarMensaje()">Borrar</a>
+                </div>
+            </div>
         </div>
-
-
-
-
         <!-- ##### Scripts ##### -->
         <script src="js/otros/jquery-2.1.3.min.js"></script>
         <script src="js/otros/highcharts.js"></script>
@@ -256,10 +217,6 @@
         <script src='js/otros/fullcalendar.js'></script>
         <script src='js/otros/es.js'></script>
         <script src='js/otros/jquery-ui.js'></script>
-
-
-
-
         <script src="js/cargarHorario.js"></script>
         <script src="js/indexsScripts.js"></script>
         <script src="js/archivos.js"></script>
@@ -268,66 +225,7 @@
         <script src="js/notificacion.js"></script>
         <script src="js/mensajes.js"></script>
         <script src="js/cargaGrafico.js"></script>
-          <script src="js/cargaInicial.js"></script>
-           <script src="js/calendario.js"></script>
-
-        <script type="text/javascript">
-
-      
-        function cargarPost() {
-          $.ajax({
-                url: 'cargarPost.php',
-                type: 'post',
-                
-                //Funcion de respuesta
-                success: function (response) {
-                    $('#postit').val(response)
-                   
-                }
-            });
-
-        }
-
-        function guardarPost() {
-             var z = $('#postit').val()
-
-       
-            var parametros = {notas: z}
-            $.ajax({
-                url: 'guardarPost.php',
-                data: parametros,
-                type: 'post',                
-
-                //Funcion de respuesta
-                success: function (response) {
-
-                    console.log(response, "holaaa")
-                }
-            });
-
-
-        }
-
-
-            $(document).ready(function(){
-            calendario();
-            $('.tooltipped').tooltip({delay: 50});
-            $('.modal-trigger').leanModal();
-            $('.button-collapse').sideNav({
-            edge: 'left', // Choose the horizontal origin
-            closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-             });
-            $('#infoModal').openModal()
-
-
-            $('.collapsible').collapsible({
-             accordion : false });
-            })
-
-            function cargarModal(nombre) {
-                $('#archivo').html(nombre)
-               $('#modal1').openModal();
-            }
-        </script>
+        <script src="js/cargaInicial.js"></script>
+        <script src="js/calendario.js"></script>
     </body>
 </html>

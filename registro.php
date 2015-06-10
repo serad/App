@@ -3,35 +3,10 @@
     <head>
         <title>Registrarse</title>
         <meta charset='utf-8'>
+        <link rel="icon" href="img/favicon1.ico">
         <link href="css/materialize.min.css" rel="stylesheet">
+        <link href="css/registro.css" rel="stylesheet">
 <style type="text/css">
-
-    h2 {
-        color: #ff6e40;
-
-    }
-
-    .titulo{
-      font-size: 3rem;
-    padding-bottom: 10px;
-    padding-top: 10px;
-
-}
-    #errorMsg{
-    font-size: 1.7rem;
-
-}
-.reg-container{
-    padding: 0 1.5rem;
-    margin: 0 auto;
-    max-width: 1280px;
-    width: 100%;
-    margin-top: 15px;
-}
-
-
-  @media only screen and (min-width : 601px){.reg-container{width:75%}}
-  @media only screen and (min-width : 993px){.reg-container{width:50%}}
 
 </style>
     </head>
@@ -48,7 +23,7 @@
     <div class="row no-margin">
      <div class="center-align no-margin">
              <ul  id='textoError' class="center-align" style="display: none">
-                        <li style="opacity: 0" id="errorMsg">ASD</li>
+                        <li style="opacity: 0" id="errorMsg"></li>
               </ul>
         </div>
     </div>
@@ -57,13 +32,13 @@
     <div class="row">
         <div class="col m6 s12">
             <div class="input-field">
-                <input id="inputNom" type="text" name="nombre"  data-delay="500" data-position="top" data-tooltip="De 5 a 35 caracteres" class="validate tooltipped" maxlength="25">
+                <input id="inputNom" type="text" name="nombre"  data-delay="500" data-position="top" data-tooltip="De 3 a 35 caracteres(Solo letras)" class="tooltipped" maxlength="35">
                 <label for="inputNom">Nombre</label>
             </div>
         </div>
           <div class="col m6 s12">
             <div class="input-field">
-                <input id="inputApe" type="text" name="apellido"  data-delay="500" data-position="top" data-tooltip="De 5 a 35 caracteres" class="validate tooltipped" maxlength="25">
+                <input id="inputApe" type="text" name="apellido"  data-delay="500" data-position="top" data-tooltip="De 3 a 35 caracteres" class="tooltipped" maxlength="35">
                 <label for="inputApe">Apellido</label>
             </div>
         </div>
@@ -72,13 +47,13 @@
     <div class="row">
         <div class="col m6  s12">
             <div class="input-field">
-                <input id="inputUsr" type="text" name="usr"  data-delay="500" data-position="top" data-tooltip="De 5 a 25 caracteres" class="validate tooltipped" maxlength="25">
+                <input id="inputUsr" type="text" name="usr"  data-delay="500" data-position="top" data-tooltip="De 5 a 25 caracteres" class="tooltipped" maxlength="25">
                 <label for="inputUsr">Usuario</label>
             </div>
         </div>
          <div class="col m6 s12">
             <div class="input-field">
-                <input id="inputEmail" type="email" name="mail" class="validate"  maxlength="25">
+                <input id="inputEmail" type="email" name="mail" maxlength="25">
                 <label for="inputEmail">Email</label>
             </div>
         </div>
@@ -117,13 +92,13 @@ while ($fila = mysqli_fetch_assoc($cursos)) {
     <div class="row">
         <div class="col m6 s12">
             <div class="input-field">
-                <input id="inputPass" type="password" name="pass" data-delay="500" data-tooltip="De 5 a 25 caracteres" class="validate tooltipped"  maxlength="25">
+                <input id="inputPass" type="password" name="pass" data-delay="500" data-tooltip="De 5 a 25 caracteres" class="tooltipped"  maxlength="25">
                 <label for="inputPass">Contraseña</label>
             </div>
         </div>
         <div class="col m6 s12">
             <div class="input-field">
-                <input id="inputPassR" type="password" name="passR" data-delay="500" data-tooltip="De 5 a 25 caracteres" class="validate tooltipped"  maxlength="25">
+                <input id="inputPassR" type="password" name="passR" data-delay="500" data-tooltip="De 5 a 25 caracteres" class="tooltipped"  maxlength="25">
                 <label for="inputPassR">Repite Contraseña</label>
             </div>
         </div>

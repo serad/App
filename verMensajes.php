@@ -1,5 +1,4 @@
 <?php
-
 include 'dbCon.php';
 
 $db = new dbCon();
@@ -11,12 +10,10 @@ $consulta = "SELECT idMensaje,emisor,asunto,mensaje,leido FROM mensajes WHERE re
 $result = $db->consulta($consulta);
 $rows = array();
 
-while($r = mysqli_fetch_assoc($result)) {
+while ($r = mysqli_fetch_assoc($result)) {
 
-    $rows[] =  $r;
+    $rows[] = $r;
 }
 
 echo json_encode($rows);
-
-
 ?>

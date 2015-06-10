@@ -3,78 +3,65 @@
     <head>
         <title>Login</title>
         <meta charset='utf-8'>
-
+        <link rel="icon" href="img/favicon1.ico">
         <link href="css/materialize.min.css" rel="stylesheet">
         <link href="css/login.css" rel="stylesheet">
-
     </head>
     <body>
         <div class="indigo center">
             <span class="titulo white-text">Inicio de sesión Staff
-            
             </span>
-
-
-
         </div>
         <!-- Spinner (Gift de comprobación de usuario) -->
         <div class="login-container z-depth-1 indigo lighten-5" >
             <div class="row no-margin">
-            
-        <!-- Texto de error/informacion -->
-        <div class="center-align">
-        <ul  id='textoError' class="center-align" style="display: none">
-        <li style="opacity: 0" id="errorMsg"></li>
-        </ul>
+                <!-- Texto de error/informacion -->
+                <div class="center-align">
+                    <ul  id='textoError' class="center-align" style="display: none">
+                        <li style="opacity: 0" id="errorMsg"></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Fin de Spinner -->
+            <!-- Usuario -->
+            <div class="row">
+                <div class="col m6 offset-m3 s12">
+                    <div class="input-field">
+                        <input id="codigoSecreto" type="password">
+                        <label for="codigoSecreto">Codigo super secreto</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Botones -->
+            <div class="row">
+                <div class="col m8 offset-m2 s12">
+                    <div class="row">
+                        <div class="col m6">
+                            <button class="btn btn-large waves-effect waves-light deep-orange accent-4 z-depth-2" type="button" onclick=" window.location = 'login.html'"><span class="hide-on-med-and-down">Volver</span><i class="mdi-hardware-keyboard-backspace left"></i>
+                            </button>
+                        </div>
+                        <div class="col m5 offset-m1 ">
+                            <button class="btn btn-large waves-effect waves-light deep-orange accent-2 z-depth-2" type="button" onclick="validarCodigoSecreto()"><span class="hide-on-med-and-down">Conectarse</span><i class="mdi-content-send right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        </div>
-<!-- Fin de Spinner -->
-<!-- Usuario -->
-<div class="row">
-<div class="col m6 offset-m3 s12">
-<div class="input-field">
-<input id="codigoSecreto" type="password">
-<label for="codigoSecreto">Codigo super secreto</label>
-</div>
-</div>
-</div>
-
-
-<!-- Botones -->
-<div class="row">
-<div class="col m8 offset-m2 s12">
-<div class="row">
-<div class="col m6">
- <button class="btn btn-large waves-effect waves-light deep-orange accent-4 z-depth-2" type="button" onclick=" window.location = 'login.html'"><span class="hide-on-med-and-down">Volver</span><i class="mdi-hardware-keyboard-backspace left"></i>
-                    </button>
-</div>
-<div class="col m5 offset-m1 ">
-<button class="btn btn-large waves-effect waves-light deep-orange accent-2 z-depth-2" type="button" onclick="validarCodigoSecreto()"><span class="hide-on-med-and-down">Conectarse</span><i class="mdi-content-send right"></i>
-</button>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-
-<!-- FrameWorks -->
-<script src="js/otros/jquery-2.1.3.min.js"></script>
-<script src="js/otros/materialize.min.js"></script>
-<script type="text/javascript">
-    
-    function validarCodigoSecreto() {
-        if($('#codigoSecreto').val() == "soysoysoyprofe"){
-            window.location = 'registroP.php'
-    }
-       if($('#codigoSecreto').val() == "soysoysoystaff"){
-             window.location = 'administracion.html'
-    }
-}
-</script>
-<!-- Scripts -->
-
-</script>
-</body>
+        <!-- FrameWorks -->
+        <script src="js/otros/jquery-2.1.3.min.js"></script>
+        <script src="js/otros/materialize.min.js"></script>
+        <script type="text/javascript">
+            function validarCodigoSecreto() {
+                if($('#codigoSecreto').val() == "soysoysoyprofe"){
+                    window.location = 'registroP.php'
+            }
+            if($('#codigoSecreto').val() == "soysoysoystaff"){
+                    window.location = 'administracion.html'
+            }
+        }
+        </script>
+        <!-- Scripts -->
+        </script>
+    </body>
 </html>

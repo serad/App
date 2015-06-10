@@ -2,8 +2,8 @@ function mostrarGrafico(asi, a, b, c) {
     $('#grafico').highcharts({
         chart: {
             type: 'column',
-            width: $(window).width()/1.5,
-            height: 400
+            //width: $(window).width()/1.5,
+            //height: 400
         },
         title: {
             text: asi
@@ -22,14 +22,6 @@ function mostrarGrafico(asi, a, b, c) {
                 text: 'NOTAS'
             }
         },
-        /*tooltip: {
-             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                 '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
-             footerFormat: '</table>',
-             shared: true,
-             useHTML: true
-         },*/
         plotOptions: {
             column: {
                 pointPadding: 0.2,
@@ -98,51 +90,37 @@ function generarGrafico(e, asignatura) {
         }
     });
 }
-
-
 //profesores
-
-	
-function iniAlumnos(e){
+function iniAlumnos(e) {
     /*0: ObjectcodAsig: "20001"media: "5.000000"trimestre: "1"*/
-    var n1=[];
-    var n2=[];
-    var n3=[];
-    
-    var a1=0;
-    var a2=0;
-    var a3=0;
-    var asig=e[e.length-1];
-    var asignaturas=[];
-    for(z in asig){
-    asignaturas[z]=asig[z]['nombre'];
+    var n1 = [];
+    var n2 = [];
+    var n3 = [];
+    var a1 = 0;
+    var a2 = 0;
+    var a3 = 0;
+    var asig = e[e.length - 1];
+    var asignaturas = [];
+    for (z in asig) {
+        asignaturas[z] = asig[z]['nombre'];
     }
-    
-    for(a in e){
-     if(e[a]['trimestre']==1){
-         
-         var b=e[a]['media']
-    n1[a1]=parseFloat(Number(b).toPrecision(2));
-    a1++;
-}
-    
-    if(e[a]['trimestre']==2){
-        
-            var b=e[a]['media']
-    n2[a2]=parseFloat(Number(b).toPrecision(2));
-    a2++;
-}
-    
-    if(e[a]['trimestre']==3){
-        
-            var b=e[a]['media']
-    n3[a3]=parseFloat(Number(b).toPrecision(2));
-    a3++;
-}
-
-}
-
-
+    for (a in e) {
+        if (e[a]['trimestre'] == 1) {
+            var b = e[a]['media']
+            n1[a1] = parseFloat(Number(b).toPrecision(2));
+            a1++;
+        }
+        if (e[a]['trimestre'] == 2) {
+            var b = e[a]['media']
+            n2[a2] = parseFloat(Number(b).toPrecision(2));
+            a2++;
+        }
+        if (e[a]['trimestre'] == 3) {
+            var b = e[a]['media']
+            n3[a3] = parseFloat(Number(b).toPrecision(2));
+            a3++;
+        }
+    }
     $('#iniAlumno').highcharts({
         chart: {
             type: 'bar'
@@ -178,37 +156,28 @@ function iniAlumnos(e){
             data: n1
         }]
     });
-
-
 }
 
-    
- function generarGraficoIniA() {
+function generarGraficoIniA() {
     $.ajax({
         url: 'iniNotasAlumnos.php',
         type: 'post',
-        dataType:'json',
-        
+        dataType: 'json',
         //Funcion de respuesta
         success: function(response) {
-           
-           iniAlumnos(response);
+            iniAlumnos(response);
         }
     });
-}   
-
-
+}
 
 function totalNotas(todo) {
-    
     $('#iniAlumno').highcharts({
-         chart: {
+        chart: {
             type: 'column'
         },
         title: {
             text: 'notas de la asignatura'
         },
-        
         xAxis: {
             type: 'category',
             labels: {
@@ -228,10 +197,9 @@ function totalNotas(todo) {
         legend: {
             enabled: false
         },
-    series: [{
+        series: [{
             name: 'Nota',
-            data: todo
-            ,
+            data: todo,
             dataLabels: {
                 enabled: true,
                 rotation: -90,
@@ -246,31 +214,30 @@ function totalNotas(todo) {
             }
         }]
     });
-    }
+}
 
- function generarTotalNotas(trimestre,codigo,titu) {
-     var data={trimestre:trimestre,codigo:codigo,titu:titu}
-     
+function generarTotalNotas(trimestre, codigo, titu) {
+    var data = {
+        trimestre: trimestre,
+        codigo: codigo,
+        titu: titu
+    }
     $.ajax({
         url: 'totalNotas.php',
         type: 'post',
         data: data,
-        dataType:'json',
-        
-        
+        dataType: 'json',
         //Funcion de respuesta
         success: function(response) {
-           
-          
-          var otro=[];
-            for (z in response){
-          var contodo=[];
-                contodo.push("nota "+(Number(z)+1));
-              contodo.push(Number(response[z]['nota']))  
-              otro.push(contodo);
-    }
-     console.log(otro+"sdfkjsadflkjsh");
-        totalNotas(otro);
-    }
+            var otro = [];
+            for (z in response) {
+                var contodo = [];
+                contodo.push("nota " + (Number(z) + 1));
+                contodo.push(Number(response[z]['nota']))
+                otro.push(contodo);
+            }
+            console.log(otro + "sdfkjsadflkjsh");
+            totalNotas(otro);
+        }
     });
-}   
+}

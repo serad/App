@@ -4,36 +4,7 @@
         <title>Registrarse</title>
         <meta charset='utf-8'>
         <link href="css/materialize.min.css" rel="stylesheet">
-<style type="text/css">
-
-    h2 {
-        color: #ff6e40;
-
-    }
-
-    .titulo{
-      font-size: 3rem;
-    padding-bottom: 10px;
-    padding-top: 10px;
-
-}
-    #errorMsg{
-    font-size: 1.7rem;
-
-}
-.reg-container{
-    padding: 0 1.5rem;
-    margin: 0 auto;
-    max-width: 1280px;
-    width: 100%;
-    margin-top: 15px;
-}
-
-
-  @media only screen and (min-width : 601px){.reg-container{width:75%}}
-  @media only screen and (min-width : 993px){.reg-container{width:50%}}
-
-</style>
+        <link href="css/registro.css" rel="stylesheet">
     </head>
 
 <body>
@@ -86,8 +57,8 @@
     </div>
 
     <!-- Select de los cursos -->
-      <div class="row">      
-               
+      <div class="row">
+
                  <?php
 
 // muestra los cursos disponbles en la base de datos
@@ -104,17 +75,19 @@ while ($fila = mysqli_fetch_assoc($cursos)) {
     $nombre = $fila['nombre'];
 
     echo '<div class="col m6 s12">';
-        echo '<div class="input-field">';
-            echo '<input type="checkbox" value="'.$codAsig.'" class="filled-in" id="'.$codAsig.'" />';
-            echo '<label for="'.$codAsig.'">'.$nombre.'</label>';
-        echo '</div>';
+    echo '<div class="input-field">';
+    echo '<input type="checkbox" value="' . $codAsig . '" class="filled-in" id="' . $codAsig . '" />';
+    echo '<label for="' . $codAsig . '">' . $nombre . '</label>';
     echo '</div>';
-   // echo "<input type='checkbox' name='asig' value=$codCur>$nombre";
-}
+    echo '</div>';
 
+    // echo "<input type='checkbox' name='asig' value=$codCur>$nombre";
+
+
+}
 ?>
-               
-       
+
+
     </div>
 
         <!-- Contraseña -->
@@ -159,7 +132,7 @@ while ($fila = mysqli_fetch_assoc($cursos)) {
     <script src="js/validator.js"></script>
     <script src="js/perfil.js"></script>
     <script src="js/regP.js"></script>
-    <script src="js/notificacion.js"></script> 
+    <script src="js/notificacion.js"></script>
 
     </body>
 </html>

@@ -15,11 +15,11 @@ $consulta = "INSERT INTO $tabla VALUES ('$usuario','$pass','$nombre','$apellido'
 
 $respuesta = $db->consulta($consulta);
 
-if($respuesta == 1) {
+if ($respuesta == 1) {
 
-$dir = "$tabla/$usuario";
-	mkdir($dir);
-	fopen("$dir/eventos", "w");
+    $dir = "$tabla/$usuario";
+    mkdir($dir);
+    fopen("$dir/eventos", "w");
 }
 echo $respuesta;
 ?>

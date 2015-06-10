@@ -11,11 +11,7 @@ else {
 
     $consulta = "DELETE FROM mensajes where idMensaje = '$id'";
 
-
     $result = $db->consulta($consulta);
-
-
-
 
     echo $result;
 }

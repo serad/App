@@ -17,28 +17,21 @@ function mostrar(idMostrar, t) {
             $(this).addClass('hide');
         }
     });
-    if(idMostrar == 'principal') {
-         $('#calendar').fullCalendar('destroy');
-               calendario()
-
+    if (idMostrar == 'principal') {
+        $('#calendar').fullCalendar('destroy');
+        calendario()
     }
 }
-function invervaloMensajes() {
 
-  $.ajax({
+function invervaloMensajes() {
+    $.ajax({
         url: 'cargarInicio.php',
         type: 'post',
         dataType: 'json',
-        
         success: function(response) {
-            
-            if (response['mensajes'] > 0 ){
-
-                   notificacion("Tienes "+response['mensajes'] +" mensaje/s sin leer")
+            if (response['mensajes'] > 0) {
+                notificacion("Tienes " + response['mensajes'] + " mensaje/s sin leer")
             }
-          
         }
     })
-
-
 }

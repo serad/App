@@ -21,7 +21,6 @@ function cargarPerfil() {
 }
 
 function guardarPerfil() {
-
     if ($('#inputNom').val() != datos.nombre) {
         if ($('#inputNom').val() != "") {
             datos.nombre = $('#inputNom').val();
@@ -43,12 +42,17 @@ function guardarPerfil() {
         }
     }
     $.ajax({
-        url: 'guardarPerfil.php',
-        type: 'post',
-        data: datos,
-        dataType: 'json',
-        success: function(response) {
-            Materialize.toast('Perfil editado con exito', 4000)
-        }
-    }) //cierra ajax
+            url: 'guardarPerfil.php',
+            type: 'post',
+            data: datos,
+            dataType: 'json',
+            success: function(response) {
+                Materialize.toast('Perfil editado con exito', 4000)
+            }
+        }) //cierra ajax
 } //cierra funcion
+$(document).ready(function() {
+    $('.tooltipped').tooltip({
+        delay: 50
+    });
+});

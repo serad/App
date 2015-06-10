@@ -11,7 +11,7 @@ if (is_dir($dir)) {
 
     //obtenemos un archivo y luego otro sucesivamente
     {
-        if ($archivo == "." || $archivo == ".." || $archivo =="eventos" || $archivo =="horario" ) {
+        if ($archivo == "." || $archivo == ".." || $archivo == "eventos" || $archivo == "horario" || $archivo == "post") {
         }
         else {
             if (!empty($archivo)) {
@@ -19,6 +19,7 @@ if (is_dir($dir)) {
             }
 
             //cierre empty
+
 
         }
     }

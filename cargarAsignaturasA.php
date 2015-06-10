@@ -11,7 +11,6 @@ else {
 
     $usuario = $_SESSION['usuario'];
     $tabla = $_SESSION['tabla'];
-    
 
     $consulta = "SELECT codAsig,nombre FROM asignaturas WHERE codCurso = (
         SELECT codCurso FROM alumnos WHERE usuario = '$usuario')";
@@ -19,9 +18,9 @@ else {
 
     $rows = array();
     while ($r = mysqli_fetch_assoc($result)) {
-        $rows[] =  $r;
+        $rows[] = $r;
     }
-    
+
     echo json_encode($rows);
 }
 ?>

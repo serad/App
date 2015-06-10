@@ -6,20 +6,24 @@
     margin-top: 1.5em;
     margin-bottom: 1.5em;
 }
+
 table {
     text-align: center;
     border: none !important;
 }
+
 #flotante {
     float: left;
     width: auto;
     vertical-align: top;
     margin: 30px;
 }
+
 .colores {
     height: 20px;
     width: 20px;
 }
+
 .contenedor {
     vertical-align: top;
     display: inline-block;
@@ -33,9 +37,11 @@ table {
     padding-left: 2em;
     padding-right: 2em;
 }
+
 .contenedor div {
     display: inline-block;
 }
+
 .hor {
     background-color: #DDECFA;
     border: 2px #f4f7fa solid;
@@ -49,6 +55,7 @@ table {
     user-select: none;
     cursor: default;
 }
+
 .horas {
     width: 70px;
     background-color: #red;
@@ -61,45 +68,56 @@ table {
     user-select: none;
     cursor: default;
 }
+
 th {
     background-color: none;
     border-radius: 7px;
     border: none;
 }
+
 td {
     border: 2px #f4f7fa solid;
     border-radius: 7px;
 }
+
 .table-curved {
     border-collapse: separate;
     border-spacing: 2px;
 }
+
 .table-curved {
     border: solid #ccc 1px;
     border-radius: 6px;
     border-left: 0px;
 }
+
 .table-curved td, .table-curved th {
     padding-right: 10px;
     border-left: 1px solid #ccc;
     border-top: 1px solid #ccc;
 }
+
 .table-curved th {
     border: none;
     font-size: 120%;
 }
+
 .table-curved th:first-child {
     border-radius: 6px;
 }
+
 .table-curved th:last-child {
     border-radius: 6px;
 }
+
 .table-curved th:only-child {
     border-radius: 6px;
 }
+
 .table-curved tr:last-child td:first-child {
     border-radius: 6px;
 }
+
 .table-curved tr:last-child td:last-child {
     border-radius: 6px;
 }

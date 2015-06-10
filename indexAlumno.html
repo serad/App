@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
         <meta charset="utf-8">
-
         <link rel="icon" href="img/favicon1.ico">
-
-        <title>Pagina principal</title>
-
+        <title>Página principal</title>
         <link href="css/materialize.min.css" rel="stylesheet">
         <link href="css/indexApp.css" rel="stylesheet">
         <link href='css/fullcalendar.css' rel='stylesheet' />
@@ -19,93 +15,90 @@
                 <div class="nav-wrapper indigo" >
                     <div class="container">
                         <a href="#!" class="brand-logo">
-                            <span class="hide-on-nuestra left" id="">SC Manager</span>
-                            <span class="hide-on-large-only center">SCM</span>
+                        <span class="hide-on-nuestra left" id="">SC Manager</span>
+                        <span class="hide-on-large-only center">SCM</span>
                         </a>
                         <a href="#" data-activates="navLateral" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
                         <ul class="right hide-on-med-and-down">
                             <li >
                                 <a href="#principal" onclick="mostrar('principal', this)" class="activo">
-                                    Principal
+                                Principal
                                 </a>
                             </li>
                             <li>
-                                <a href="#estadisticas" onclick="mostrar('estadisticas', this)">
-                                    Estadísticas
+                                <a href="#notas" onclick="mostrar('notas', this)">
+                                Notas
                                 </a>
                             </li>
                             <li>
                                 <a href="#notas" onclick="mostrar('editarHorario', this)">
-                                    Editar horario
+                                Editar horario
                                 </a>
                             </li>
                             <li>
                                 <a href="#mensajes" onclick="mostrar('mensajes', this), verMensajes()">
-                                    Mensajes
+                                Mensajes
                                 </a>
                             </li>
                             <li>
                                 <a href="#archivos" onclick="mostrar('archivos', this)">
-                                    Archivos
+                                Archivos
                                 </a>
                             </li>
                             <li>
                                 <a href="editarPerfil.html" class="waves-effect waves-light btn deep-orange accent-4">
-                                    Editar Perfil
+                                Editar Perfil
                                 </a>
                             </li>
                             <li>
                                 <a href="#" onclick="cerrarSesion()">
-                                    <i class="mdi-action-exit-to-app deep-orange-text accent-4"></i></a>
+                                <i class="mdi-action-exit-to-app deep-orange-text accent-4"></i></a>
                             </li>
                         </ul>
                         <ul class="side-nav" id="navLateral">
                             <li class="logo"><img src="img/logo.png" height="100"></li>
                             <li >
                                 <a href="#principal" onclick="mostrar('principal')">
-                                    Principal
+                                Principal
                                 </a>
                             </li>
                             <li>
-                                <a href="#estadisticas" onclick="mostrar('estadisticas')">
-                                    Estadísticas
+                                <a href="#notas" onclick="mostrar('notas')">
+                                Notas
                                 </a>
                             </li>
                             <li>
                                 <a href="#notas" onclick="mostrar('editarHorario')">
-                                    Editar horario
+                                Editar horario
                                 </a>
                             </li>
                             <li>
                                 <a href="#mensajes" onclick="mostrar('mensajes')">
-                                    Mensajes
+                                Mensajes
                                 </a>
                             </li>
                             <li>
                                 <a href="#archivos" onclick="mostrar('archivos')">
-                                    Archivos
+                                Archivos
                                 </a>
                             </li>
                         </ul>
-
                     </div>
                 </div>
             </nav>
-
         </div>
         <!-- el horario se trae mediante una peticion ajax y se añade con JS  -->
         <div  class="principal cont row" id="principal">
             <div class="hide-on-large-only"><h4>Bienvenido de nuevo <span id='nombre2'></span> </h4>
                 <h4>Tienes <span id='nm2'></span> mensaje/s nuevo/s </h4>
-                <h4>Ultima fecha de conexión <span id='ultimaConex2'></span> </h4>
-            </div> 
-
+                <h4>Última fecha de conexión <span id='ultimaConex2'></span> </h4>
+            </div>
             <div id="horario" class="col m6 s12 hide-on-med-and-down" >
             </div>
             <div  class="col m4 offset-m1 s12 hide-on-med-and-down">
                 <h5>Calendario</h5>
                 <div id='calendar'>
-                    <div id="calendarTrash" class="calendar-trash" style="height: 300px;width: 300px"><a href="#"><i class="mdi-action-delete medium red-text"></i></a><a href="#"><i onclick="guardaEventos()" class="mdi-content-save medium blue-text"></i></a></div>
+                    <div id="calendarTrash" class="calendar-trash"><a href="#"><i class="mdi-action-delete medium red-text"></i></a><a href="#"><i onclick="guardaEventos()" class="mdi-content-save medium blue-text"></i></a></div>
                 </div>
             </div>
             <!-- MODAL -->
@@ -113,22 +106,17 @@
                 <div class="modal-content">
                     <h4>Bienvenido de nuevo <span id='nombre'></span> </h4>
                     <h4>Tienes <span id='nm'></span> mensaje/s nuevo/s </h4>
-                    <h4>Ultima fecha de conexión <span id='ultimaConex'></span> </h4>
-
+                    <h4>Última fecha de conexión <span id='ultimaConex'></span> </h4>
                 </div>
             </div>
             <!--<div class="col m8"id="iniAlumno">grafico ini alumno</div>-->
-
-
         </div>
         <div class="container">
-
-            <div class="cont hide row" id="estadisticas">
-                <h2>Estadísticas</h2>
-                <br> 
-                <div class="col m4" id="asignaturasGra"></div>               
-                <div class="col m8" id="iniAlumno"></div>
-                
+            <div class="cont hide row" id="notas">
+                <h3>Notas</h3>
+                <br>
+                <div class="col m4 s12" id="asignaturasGra"></div>
+                <div class="col m8 s12" id="iniAlumno"></div>
             </div>
             <div class="cont hide" id="editarHorario" >
                 <h4>Editar horario</h4>
@@ -139,28 +127,26 @@
                         <h5>Colores</h5><br><br><br><br>
                         <table class="table-curved">
                             <tbody><tr><td class="colores" bgcolor="#ec5565" style="border: 2px solid rgb(244, 247, 250);"></td><td class="colores" bgcolor="#6798D0" style="border: 2px solid rgb(244, 247, 250);"></td></tr>
-                                <tr><td class="colores" bgcolor="#ffce55" style="border: 2px solid rgb(244, 247, 250);"></td><td class="colores" bgcolor="#5bc1a6" style="border: 2px solid rgb(244, 247, 250);"></td></tr>
-                                <tr><td class="colores" bgcolor="#e788b8" style="border: 2px solid rgb(244, 247, 250);"></td><td class="colores" bgcolor="#f26e53" style="border: 2px solid rgb(244, 247, 250);"></td></tr>
-                                <tr><td class="colores" colspan="2" bgcolor="#DDECFA" style="border: 2px solid rgb(244, 247, 250);"></td></tr>
-                            </tbody></table>
+                            <tr><td class="colores" bgcolor="#ffce55" style="border: 2px solid rgb(244, 247, 250);"></td><td class="colores" bgcolor="#5bc1a6" style="border: 2px solid rgb(244, 247, 250);"></td></tr>
+                            <tr><td class="colores" bgcolor="#e788b8" style="border: 2px solid rgb(244, 247, 250);"></td><td class="colores" bgcolor="#f26e53" style="border: 2px solid rgb(244, 247, 250);"></td></tr>
+                            <tr><td class="colores" colspan="2" bgcolor="#DDECFA" style="border: 2px solid rgb(244, 247, 250);"></td></tr>
+                        </tbody></table>
                         <br>
                         <button class="btn btn-success" onclick="guardarHorario()">Guardar</button>
                     </div>
                 </div>
             </div>
             <div class="cont hide" id="mensajes">
-
-                <h2>Mensajes</h2>
+                <h3>Mensajes</h3>
                 <br>
                 <div class="row"><button class="btn deep-orange" onclick="verMensajes()"> Ver mensajes </button>
-                    <button class="btn deep-orange accent-4" onclick="$('#mensajesRecibidos').hide(), $('#formEnviar').show()"> Escribir Mensaje </button></div>
+                <button class="btn deep-orange accent-4" onclick="$('#mensajesRecibidos').hide(), $('#formEnviar').show()"> Escribir Mensaje </button></div>
                 <div id="mensajesRecibidos" style="display:none">
                     <fieldset >
                         <legend>Mensajes Recibidos:</legend>
                     </fieldset>
                 </div>
                 <div id="formEnviar" style="display:none">
-
                     <div class="row">
                         <div class="col m6 s12">
                             <div class="input-field">
@@ -177,28 +163,22 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="input-field col m12 s12">
                             <textarea id="InputTextArea" class="materialize-textarea" length="500" maxlength="500"></textarea>
-                            <label for="InputTextArea">Textarea</label>
+                            <label for="InputTextArea">Mensaje:</label>
                         </div>
                     </div>
-
                     <button class="btn deep-orange" onclick="enviarMensaje()">Enviar</button>
-                    </fieldset>
                 </div>
             </div>
-
             <div class="cont hide" id="archivos">
-
                 <div class="row">
-                    <h2>Archivos</h2>
+                    <h3>Archivos</h3>
                     <br>
                     <div class="file-field input-field">
                         <div class="valign-wrapper">
                             <input class="file-path validate" id="nArchivo" type="text" onchange="mostrarSubir()" disabled />
-
                             <a href="#" onclick="vaciarFile()"><i class="valign small mdi-content-clear red-text"></i> </a>
                             <a href="#" id="btnS" class="hide" onclick="subirArchivos()"><i class="valign small mdi-file-cloud-upload"></i></a>
                         </div>
@@ -206,52 +186,35 @@
                             <span><i class="mdi-editor-insert-drive-file" id="iconoA"></i></span>
                             <input  id="archi" type="file" />
                         </div>
-
                     </div>
                 </div>
-
                 <div id="lArchivos" class="row"></div>
             </div>
-
             <!-- Modal Structure -->
             <div id="modal1" class="modal">
                 <div class="modal-content">
                     <h5>Borrar</h5>
                     <p>Esta a punto de borrar<b>
-                            <span id="archivo"></span></b></p>
-
+                    <span id="archivo"></span></b></p>
                 </div>
                 <div class="modal-footer">
-
                     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">No</a>
                     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red-text" onclick="borrarArchivo()">Borrar</a>
                 </div>
-
             </div>
-
-
-
             <div id="modalMensajes" class="modal">
                 <div class="modal-content">
                     <h5>Borrar</h5>
                     <p>El mensaje se eliminará
-                        <span id="mensajeId" style="display:none"></span>
-                        </b>
+                    <span id="mensajeId" style="display:none"></span>
+                    </p>
                 </div>
                 <div class="modal-footer">
-
                     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">No</a>
                     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red-text" onclick="borrarMensaje()">Borrar</a>
                 </div>
-
             </div>
-
-
         </div>
-
-
-
-
         <!-- ##### Scripts ##### -->
         <script src="js/otros/jquery-2.1.3.min.js"></script>
         <script src="js/otros/highcharts.js"></script>
@@ -261,7 +224,6 @@
         <script src='js/otros/fullcalendar.js'></script>
         <script src='js/otros/es.js'></script>
         <script src='js/otros/jquery-ui.js'></script>
-
         <script src="js/hor.js"></script>
         <script src="js/cargarHorario.js"></script>
         <script src="js/indexsScripts.js"></script>
@@ -274,48 +236,5 @@
         <script src="js/cargaInicial.js"></script>
         <script src="js/cargaInicial.js"></script>
         <script src="js/calendario.js"></script>
-
-
-
-
-
-        <script type="text/javascript">
-     
-
-        $(window).resize(function () {
-            if ($(window).width() > 903) {
-                $('#calendar').fullCalendar('destroy');
-                calendario();
-            }
-        });
-
-
-
-      
-
-        $(document).ready(function () {
-
-            calendario();
-            $('.tooltipped').tooltip({delay: 50});
-            $('.modal-trigger').leanModal();
-            $('.button-collapse').sideNav({
-                edge: 'left', // Choose the horizontal origin
-                closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-            });
-            $('#infoModal').openModal()
-
-
-            $('.collapsible').collapsible({
-                accordion: false});
-        })
-
-        function cargarModal(nombre) {
-            $('#archivo').html(nombre)
-            $('#modal1').openModal();
-
-        }
-
-
-        </script>
     </body>
 </html>

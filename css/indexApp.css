@@ -1,32 +1,36 @@
  html, body {
      height: 100%;
  }
+
  .archivos-container {
      padding: 2.5rem 5rem;
      margin: 0 auto;
      width: 100%;
  }
+
  .activo {
      background-color: #394AA3;
  }
+
  .navbar-fixed {
      margin-bottom: 15px;
  }
 
  .destacado {
-    font-weight: bold;
+     font-weight: bold;
  }
- .principal {
-    width: 85%;
-    margin:atuto;
-    padding: 30px 15px;
-    text-align: center;
-}
 
-.file-field input.file-path {
-  margin-left: 100px;
-  width: calc(100% - 300px);
-}
+ .principal {
+     width: 85%;
+     margin: atuto;
+     padding: 30px 15px;
+     text-align: center;
+ }
+
+ .file-field input.file-path {
+     margin-left: 100px;
+     width: calc(100% - 300px);
+ }
 
  @media only screen and (max-width: 1300px) {
      .hide-on-nuestra {

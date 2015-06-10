@@ -10,7 +10,7 @@ class dbCon
 
     public function __construct() {
         $this->con = new mysqli($this->db, $this->usr, $this->pass, $this->dbName);
-         $this->con->query("SET character_set_results = 'utf8', character_set_client = 'utf8',character_set_connection = 'utf8'");
+        $this->con->query("SET character_set_results = 'utf8', character_set_client = 'utf8',character_set_connection = 'utf8'");
     }
 
     function consulta($query) {

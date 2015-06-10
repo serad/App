@@ -1,15 +1,15 @@
   function cargarArchivos() {
-          //Funcion Ajax
-          $.ajax({
-                  url: 'cargarArchivos.php',
-                  type: 'post',
-                  //Funcion de respuesta
-                  success: function(response) {
-                      $('#lArchivos').html('')
-                      $('#lArchivos').append(response)
-                  }
-              }) //Fin Ajax
-      } //Fin CargarArchivos
+      //Funcion Ajax
+      $.ajax({
+              url: 'cargarArchivos.php',
+              type: 'post',
+              //Funcion de respuesta
+              success: function(response) {
+                  $('#lArchivos').html('')
+                  $('#lArchivos').append(response)
+              }
+          }) //Fin Ajax
+  } //Fin CargarArchivos
   function subirArchivos() {
       var file_data = $('#archi').prop('files')[0];
       var form_data = new FormData();
@@ -32,35 +32,33 @@
   }
 
   function borrarArchivo() {
-    var e = $('#archivo').html()
+      var e = $('#archivo').html()
           //Funcion Ajax
-          var parametros = {
-              archivo: e,
-          }
-          $.ajax({
-                  url: 'eliminarArchivos.php',
-                  type: 'post',
-                  data: parametros,
-                  //Funcion de respuesta
-                  success: function(response) {
-                          if (response == 1) {
-                              cargarArchivos();
-                          }
-                      } //fin success
-              }) //Fin Ajax
-      } //Fin borrarARchivos
+      var parametros = {
+          archivo: e,
+      }
+      $.ajax({
+              url: 'eliminarArchivos.php',
+              type: 'post',
+              data: parametros,
+              //Funcion de respuesta
+              success: function(response) {
+                      if (response == 1) {
+                          cargarArchivos();
+                      }
+                  } //fin success
+          }) //Fin Ajax
+  } //Fin borrarARchivos
+  function mostrarSubir() {
+      $('#btnS').removeClass('hide')
+      $('#iconoA').removeClass();
+      $('#iconoA').addClass('mdi-image-filter-1');
+  }
 
-          function mostrarSubir () { 
-
-                  $('#btnS').removeClass('hide')  
-                  $('#iconoA').removeClass();
-                  $('#iconoA').addClass('mdi-image-filter-1');
-
-                }
-                function vaciarFile() {
-                   $('#archi').val('')
-                    $('#nArchivo').val('');
-                    $('#btnS').addClass('hide')
-                  $('#iconoA').removeClass();
-                  $('#iconoA').addClass('mdi-editor-insert-drive-file');
-                }
+  function vaciarFile() {
+      $('#archi').val('')
+      $('#nArchivo').val('');
+      $('#btnS').addClass('hide')
+      $('#iconoA').removeClass();
+      $('#iconoA').addClass('mdi-editor-insert-drive-file');
+  }

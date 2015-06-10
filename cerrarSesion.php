@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 session_destroy();
 $parametros_cookies = session_get_cookie_params();
