@@ -11,7 +11,7 @@ $apellido = $_POST['apellido'];
 $curso = $_POST['curso'];
 $email = $_POST['email'];
 
-$consulta = "INSERT INTO $tabla VALUES ('$usuario','$pass','$nombre','$apellido','$email','$curso','')";
+$consulta = "INSERT INTO $tabla VALUES ('$usuario','$pass','$nombre','$apellido','$email','$curso',CURDATE())";
 
 $respuesta = $db->consulta($consulta);
 

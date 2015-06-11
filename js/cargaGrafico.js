@@ -170,13 +170,14 @@ function generarGraficoIniA() {
     });
 }
 
-function totalNotas(todo) {
+function totalNotas(todo,titu) {
+    console.log(titu)
     $('#iniAlumno').highcharts({
         chart: {
             type: 'column'
         },
         title: {
-            text: 'notas de la asignatura'
+            text: titu
         },
         xAxis: {
             type: 'category',
@@ -217,6 +218,7 @@ function totalNotas(todo) {
 }
 
 function generarTotalNotas(trimestre, codigo, titu) {
+
     var data = {
         trimestre: trimestre,
         codigo: codigo,
@@ -232,12 +234,12 @@ function generarTotalNotas(trimestre, codigo, titu) {
             var otro = [];
             for (z in response) {
                 var contodo = [];
-                contodo.push("nota " + (Number(z) + 1));
+                contodo.push("Examen " + (Number(z) + 1));
                 contodo.push(Number(response[z]['nota']))
                 otro.push(contodo);
             }
-            console.log(otro + "sdfkjsadflkjsh");
-            totalNotas(otro);
+            console.log(otro,titu);
+            totalNotas(otro,titu);
         }
     });
 }

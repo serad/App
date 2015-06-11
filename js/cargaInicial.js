@@ -35,6 +35,9 @@ function cargaIni() {
         $('.fc-next-button').click(function() {
             cargarEventos();
         });
+           $('.fc-today-button').click(function() {
+            cargarEventos();
+        });
     })
 }
 
@@ -67,6 +70,15 @@ function cargaIniA() {
             accordion: false
         });
         cargarHorario()
+             $('.fc-prev-button').click(function() {
+            cargarEventos();
+        });
+        $('.fc-next-button').click(function() {
+            cargarEventos();
+        });
+           $('.fc-today-button').click(function() {
+            cargarEventos();
+        });
     })
 }
 

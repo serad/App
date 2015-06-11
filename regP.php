@@ -11,14 +11,16 @@ $apellido = $_POST['apellido'];
 $email = $_POST['email'];
 $asignaturas = $_POST['asignaturas'];
 
-$consulta = "INSERT INTO $tabla VALUES ('$usuario','$pass','$nombre','$apellido','$email','')";
+
+$consulta = "INSERT INTO $tabla VALUES ('$usuario','$pass','$nombre','$apellido','$email',CURDATE())";
 
 $respuesta = $db->consulta($consulta);
 if ($respuesta == 1) {
     $dir = "$tabla/$usuario";
     mkdir($dir);
     fopen("$dir/eventos", "w");
-    fopen("$dir/post", "w");
+    $post=fopen("$dir/post", "w");
+    fwrite($post,"Introduce aqui tus notas");
 }
 if ($respuesta == 1) {
 
